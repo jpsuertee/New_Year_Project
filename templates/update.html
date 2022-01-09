@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+
+{% block head %}
+<div class="header"><h1>New Years Resolutions & Goals!</h1></div>
+<h2 class="center">Edit Goal</h2>
+{% endblock %}
+
+{% block body2 %}
+<div class="center">
+<div class="content">
+    <form action="/update/{{task.id}}" method="POST">
+            <br><br>
+            <div>Insert your first name and then your goal</div>
+            <input type="text" name="content2" id="content2" value=" {{task.name}} ">
+            <input type="text" name="content" id="content" value=" {{task.task}} " width="100px">
+            <input type="submit" value="Update task">
+        </form>
+        <button><a href="/">Return</a></button>
+    <br><br><br>
+
+
+    
+    <h3>Steps to achieve this goal</h3>
+        {% for x in task.steps %}
+        <li>{{ x.procedure }}</li><br>
+        {% endfor %}
+    <br>
+    <form action="/update_steps/{{task.id}}" method="POST">
+            <input type="text" name="content" id="content" width="100px">
+            <input type="submit" value="Add your steps to achieve your goal">
+        </form>
+        <button><a href="/">Return</a></button>
+</div>
+</div>
+
+{% endblock %}

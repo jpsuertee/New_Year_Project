@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+
+{% block head %}
+<div class="header"><h1>New Years Resolutions & Goals!</h1></div>
+{% endblock %}
+
+{% block body2 %}
+<div class="content">
+    {% if tasks|length < 1 %}
+        <h2 class="center">Start your goals for the new year!</h2>
+    {% else %}
+        <table>
+            <tr>
+                <th width="150px">Name</th>
+                <th font-size="5%">Goals</th>
+                <th>How are you going to achieve your goal?</th>
+                <th width="150px">Added</th>
+                <th width="100px">Actions</th>
+            </tr>
+            {% for x in tasks %}
+            <tr>
+                    <td> {{ x.name }} </td>
+                    <td>{{ x.task }}</td>
+                    <td> 
+                        {% for y in x.steps %}
+                        <li text-align="left">{{ y.procedure }}</li>
+                        {% endfor %}
+                    </td>
+                    <td>{{ x.made }}</td>
+                    <td>
+                        <a href="/update/{{x.id}}">Edit</a> 
+                        <br>
+                        <a href="/delete/{{x.id}}">Remove</a>
+                    </td>
+                {% endfor %}
+            </tr>
+        </table>
+    {% endif %}
+    <div class="center">
+    <form action="/" method="POST">
+        <br><br>
+        <div>Insert your first name and then your goal</div>
+        <input type="text" name="content2" id="content2">
+        <input type="text" name="content" id="content">
+        <input type="submit" value="Add task">
+    </form>
+    </div>
+</div>
+{% endblock %}
