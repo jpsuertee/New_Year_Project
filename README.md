@@ -8,5 +8,5 @@ Methods:
     1. Installed Python's Flask and SQLAlchemy
     2. Created a simple HTML/CSS web page for users to interact and insert data.
     3. Wrote python functions using flask to manipulate data entries that would connect to the HTML webpage.
-           -Installed virtualenv in order to test my flask application.
+           Installed virtualenv in order to test my flask application.
     4. Began learning how to use Git in VSCODE and pushed files into Github.
